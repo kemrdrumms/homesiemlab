@@ -1,0 +1,41 @@
+{
+    "rules": [
+        {
+            "name": "multiple_failed_logins",
+            "description": "Detect multiple failed login attempts from the same IP",
+            "pattern": "WARNING.*Multiple failed login attempts from IP: (\\d+\\.\\d+\\.\\d+\\.\\d+)",
+            "threshold": 3,
+            "severity": "high"
+        },
+        {
+            "name": "suspicious_file_modification",
+            "description": "Detect suspicious file modifications",
+            "pattern": "WARNING.*Suspicious file modification: (.*)",
+            "severity": "critical"
+        },
+        {
+            "name": "port_scan",
+            "description": "Detect port scanning attempts",
+            "pattern": "WARNING.*Port scan detected from IP: (\\d+\\.\\d+\\.\\d+\\.\\d+)",
+            "severity": "high"
+        },
+        {
+            "name": "unauthorized_access",
+            "description": "Detect unauthorized access attempts",
+            "pattern": "WARNING.*Unauthorized access attempt to (.*)",
+            "severity": "high"
+        }
+    ],
+    "alert_config": {
+        "email": {
+            "enabled": true,
+            "smtp_server": "smtp.example.com",
+            "smtp_port": 587,
+            "recipients": ["security@example.com"]
+        },
+        "slack": {
+            "enabled": false,
+            "webhook_url": ""
+        }
+    }
+} 
